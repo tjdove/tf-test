@@ -1,0 +1,28 @@
+import { Canvas } from "@react-three/fiber";
+import {
+  useGLTF,
+  Edges,
+  MeshPortalMaterial,
+  CameraControls,
+  Environment,
+  PivotControls,
+} from "@react-three/drei";
+
+export default function App2() {
+  return (
+    <div id="canvas-container">
+      <Canvas>
+        <ambientLight intensity={0.1} />
+        <directionalLight color="red" position={[0, 0, 5]} />
+        {/* <PivotControls anchor={[-1.1, -1.1, -1.1]} scale={0.75} lineWidth={3.5}> */}
+        <mesh>
+          <boxGeometry args={[2, 2, 8]} />
+          {/*             <Edges />
+            <torusKnotGeometry args={[0.55, 0.2, 128, 32]} /> */}
+          <meshStandardMaterial />
+        </mesh>
+        {/* </PivotControls> */}
+      </Canvas>
+    </div>
+  );
+}
