@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 
-export default function Box(props) {
+export default function Plane(props) {
   // This reference gives us direct access to the THREE.Mesh object
   const ref = useRef();
   // Hold state for hovered and clicked events
@@ -14,18 +14,16 @@ export default function Box(props) {
   });
   // Return the view, these are regular Threejs elements expressed in JSX
   return (
-    <>
-      <mesh
-        {...props}
-        ref={ref}
-        scale={clicked ? 2.5 : 1}
-        onClick={(event) => click(!clicked)}
-        onPointerOver={(event) => hover(true)}
-        onPointerOut={(event) => hover(false)}
-      >
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
-      </mesh>
-    </>
+    <mesh
+      {...props}
+      ref={ref}
+      scale={clicked ? 2.5 : 1}
+      onClick={(event) => click(!clicked)}
+      onPointerOver={(event) => hover(true)}
+      onPointerOut={(event) => hover(false)}
+    >
+      <planeGeometry args={[3, 3, 3]} />
+      <meshStandardMaterial color={hovered ? "yellow" : "red"} />
+    </mesh>
   );
 }
