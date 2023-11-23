@@ -9,16 +9,16 @@ export default function Box(props) {
   const [clicked, click] = useState(false);
   // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame((state, delta) => (ref.current.rotation.x += delta));
-  useFrame(() => {
+  /*   useFrame(() => {
     console.log("Hey, I'm executing every frame!");
-  });
+  }); */
   // Return the view, these are regular Threejs elements expressed in JSX
   return (
     <>
       <mesh
         {...props}
         ref={ref}
-        scale={clicked ? 2.5 : 1}
+        scale={clicked ? 3 : 1}
         onClick={(event) => click(!clicked)}
         onPointerOver={(event) => hover(true)}
         onPointerOut={(event) => hover(false)}
